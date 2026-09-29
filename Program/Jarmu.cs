@@ -6,28 +6,35 @@ namespace Program
 {
     public class Jarmu
     {
-        
-        
+
+
+        private string rendszam;
         public string Rendszam
         {
             get => rendszam;
             set => rendszam = string.IsNullOrWhiteSpace(value) ? "ISMERETLEN" : value;
         }
 
-     
-        public int kor
+        private int kor;
+        public int Kor
         {
             get => kor;
-            set => kor = Math.Max(0, value);
+            set
+            {
+                if (value < 0) kor = 0;
+                else if (value > 50) kor = 50;
+                else kor = value;
+            }
         }
- 
+
+        private int kilometerOra;
         public int KilometerOra
         {
             get => kilometerOra;
             set => kilometerOra = value < 0 ? 0 : value;
         }
 
-
+        private int uzemanyagSzint;
         public int UzemanyagSzint
         {
             get => uzemanyagSzint;
@@ -63,7 +70,6 @@ namespace Program
             UzemanyagSzint = System.Math.Max(0, UzemanyagSzint - 10);
             System.Console.WriteLine("A jármű szervizelése megtörtént.");
         }
-
 
     }
     }

@@ -109,6 +109,7 @@ namespace Tesztek
         // TeherAuto tesztek
         // -------------------------
 
+
         [Test]
         public void TeherAuto_Rakomany_KezdetiErtekHelyes()
         {
